@@ -12,13 +12,13 @@ if __name__ == '__main__':
         for y in range(image.size[1]):
             for x in range(image.size[0]):
                 imgdata = data[x, y]
-                output =[imgdata[0], imgdata[1], imgdata[2]]
+                output = [imgdata[0], imgdata[2], imgdata[1]]
                 unencoded_data.append(output)
 
         #Encode and compress the data:
         #We use 0xffffffff as a mask for since all these values are signed
         prevInt = (unencoded_data[0][0] << 24 | unencoded_data[0][1] << 16 | unencoded_data[0][2] << 8) & 0xffffffff
-        counter = 1
+        counter = 0
         integer = 0
         encoded_data = []
 
@@ -28,8 +28,8 @@ if __name__ == '__main__':
             if prevInt == integer and counter < 255:
                 counter+=1
             else:
-                encoded_data.append(integer | (counter & 0xffffffff))
-                counter = 1
+                encoded_data.append(prevInt | (counter & 0xffffffff))
+                counter = 0
 
             prevInt = integer
 
@@ -40,6 +40,7 @@ if __name__ == '__main__':
         print(bin(encoded_data[0] & 0xffffffff))
 
         #Write the encoded image to a file:
+        f.write("{0}, ".format(len(encoded_data)))
 
         for elements in encoded_data:
             f.write("{0}, ".format(elements))

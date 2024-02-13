@@ -2,8 +2,16 @@
 #define matrix_width 128
 #define matrix_height 32
 
+// WS2812 Sides      (RGB or GRB????)
+#define NUM_LED 42
+#define DATA_PIN 12
+
+// constant color hex codes for the sides, in different scenarios
+long color_neutral = 0xf024cc;
+long color_boop = 0xff0000;
+
 // Amount of random animations you've added (DEFAULT 4)
-#define ANIM_COUNT 4
+#define ANIM_COUNT 1
 
 // Pin Defines
 #define MIC_PIN 39  // Connect the OUT pin on the MAX4466 onto this pin.
@@ -14,9 +22,12 @@
 #define P_A 19
 #define P_B 23
 #define P_C 18
-#define P_D 2
+#define P_D 5
 #define P_E 15
 #define P_OE 16
+
+//16,15,18,19,22,23,14,13,5(13,15,19,18,23,5,14,22,2)
+//16,22,14,(14,22,2)
 
 // Uncomment this if your matrices are displaying errors like color shifts or flickering pixels (Mostly the case with matrices bought from AliExpress)
 #define PxMATRIX_SPI_FREQUENCY 19900000

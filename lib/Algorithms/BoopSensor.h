@@ -1,5 +1,8 @@
 // This is the threshold value that will trigger the boop animation when the signal on that pin exceeds or equals to.
 uint16_t boopThreshold = 2500;
+
+CRGB ledss[NUM_LED];
+
 // This function checks if the protogen has been booped by comparing the boop signal to the threshold.
 // It returns true when booped and false if not booped.
 bool boopSensor()
@@ -8,7 +11,15 @@ bool boopSensor()
     {
         // We set this variable up to randomly pick from a pool of 4 animations.
         // random(x,y) excludes the upper value so we set it to 4 instead of 3.
-        int rand = random(0, ANIM_COUNT);
+        int rand = random(4, ANIM_COUNT);
+
+        // FastLED sides while boopSensor = Triggered
+        FastLED.addLeds<WS2812, DATA_PIN, GRB>(ledss, NUM_LED);
+           for (int i = 0; i < NUM_LED; i++) {
+        ledss[i] = color_boop;
+        }
+        FastLED.setBrightness(200);       
+        FastLED.show();
 
         // We use a switch case to play the animation depending on which integer rand selects.
         // If you add more animations, be sure to increase the value for ANIM_COUNT.
@@ -16,7 +27,7 @@ bool boopSensor()
         {
         case 0:
             playAnimation(0, 0, bk, true);
-            break;
+            break; 
         case 1:
             playAnimation(0, 0, bk2_, true);
             break;
@@ -25,8 +36,8 @@ bool boopSensor()
             break;
         case 3:
             playAnimation(0, 0, bk4_, true);
-            break;
-        }
+            break; 
+        } 
         return true;
     }
     else

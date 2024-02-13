@@ -49,7 +49,7 @@ void drawFace(int offset_x, int offset_y, const uint32_t image[], bool overlay, 
             // If mirroring was enabled, draw the image on the other side of the display mirrored
             if (mirror)
             {
-                display.drawPixelRGB888(offset_x + imgWidth * 2 - x, y + offset_y, r, g, b);
+                display.drawPixelRGB888(offset_x + imgWidth * 2 - x - 1, y + offset_y, r, g, b);
             }
         };
     }
