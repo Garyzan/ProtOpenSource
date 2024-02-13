@@ -28,7 +28,6 @@ void Task2code(void *pvParameters);
 TaskHandle_t Task1;
 TaskHandle_t Task2;
 
-CRGB leds[NUM_LED];
 // --------------------------------------------------------------------------------------------------------------------------------
 
 // Code in setup only runs once
@@ -67,13 +66,8 @@ void setup()
     display.showBuffer();
     display.clearDisplay();
     FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, NUM_LED);
-    for (int i = 0; i < NUM_LED; i++) {
-        leds[i] = color_neutral;
-    }
-    FastLED.setBrightness(128);       //
-    FastLED.show();
+    FastLED.setBrightness(128);
 }
-
 
 
 // This is our main loop

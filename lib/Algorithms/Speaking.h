@@ -61,6 +61,11 @@ void isIdle()
 // This function listens to the mic signal and based off of that, plays a facial animation for the given sound level.
 void getMicrophoneLevel()
 {
+    for (int i = 0; i < NUM_LED; i++) {
+        leds[i] = color_neutral;
+    }
+    FastLED.show();
+
     // This is the baseline signal you get from your microphone with no sound. You will have to measure this value using the method described above
     const int baseline = 1900;
     // Tracks which face has been picked to render

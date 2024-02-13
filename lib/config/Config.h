@@ -9,6 +9,7 @@
 // constant color hex codes for the sides, in different scenarios
 long color_neutral = 0xf024cc;
 long color_boop = 0xff0000;
+CRGB leds[NUM_LED];
 
 // Amount of random animations you've added (DEFAULT 4)
 #define ANIM_COUNT 1
