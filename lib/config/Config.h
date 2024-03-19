@@ -12,7 +12,7 @@ long color_boop = 0xff0000;
 CRGB leds[NUM_LED];
 
 // Amount of random animations you've added (DEFAULT 4)
-#define ANIM_COUNT 1
+#define ANIM_COUNT 4
 
 // Pin Defines
 #define MIC_PIN 39  // Connect the OUT pin on the MAX4466 onto this pin.
