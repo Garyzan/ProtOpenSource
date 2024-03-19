@@ -9,7 +9,7 @@ bool boopSensor()
     {
         // We set this variable up to randomly pick from a pool of 4 animations.
         // random(x,y) excludes the upper value so we set it to 4 instead of 3.
-        int rand = random(4, ANIM_COUNT);
+        int rand = random(0, ANIM_COUNT);
 
         // FastLED sides
         for (int i = 0; i < NUM_LED; i++) {
