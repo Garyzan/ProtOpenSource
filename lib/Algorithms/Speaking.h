@@ -74,7 +74,7 @@ void getMicrophoneLevel()
     // Because we only care about loudness for selecting which speaking animation to play, we absolute value the baseline
     // Then, we apply a rolling average to the signal as a low-pass filter
     int microphoneLevel = rollingAverage(abs(analogRead(MIC_PIN) - baseline)); // Read pin value
-    Serial.print(microphoneLevel);
+    Serial.print(String(analogRead(MIC_PIN)) + " " + String(microphoneLevel) + "\n");
 
     // Depending on how large the mic signal is, it picks a facial animation to play for the given loudness range.
     // Make sure to order the if else statements from largest to smallest or else it'll just play only the smallest value
