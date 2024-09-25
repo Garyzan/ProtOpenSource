@@ -3,9 +3,9 @@ unsigned long blinkMillis;
 
 // These are the activation thresholds for the talking animations to play. You will most likely need to change these values depending on mic position, manufacturer, etc.
 // To change, I recommend using Serial.println(microphoneLevel) and viewing the serial plotter.
-const int talk_threshold = 300;
-const int loud_threshhold = 600;
-const int yelling_threshhold = 1500;
+const int talk_threshold = 1989;
+const int loud_threshhold = 1999;
+const int yelling_threshhold = 2000;
 
 // This defines the pointer array to our facial animations which will be used in getMicrophoneLevel()
 // With this current setup, index 0-4 is for talking, 5-9 is for loud talking and 10-14 is for yell
